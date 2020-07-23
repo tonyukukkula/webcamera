@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+	<body>
+		<video id="video"></video>
+		<canvas id="canvas"></canvas><br/>
+		<input type="button" value="SNAP" onclick="snap();">
+	<script type="text/javascript">
+<!--
+	var video = document.getElementById("video");
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitgetUserMedia || navigator.mozgetUserMedia || navigator.msgetUserMedia || navigator.ogetUserMedia; //tarayicilari ozel olarak tanimlamak icin
+
+	if(navigator.getUserMedia){
+		navigator.getUserMedia({video:true}, streamWebCam, throwError);
+	}
+
+	function streamWebCam (stream) {
+		video.src = window.URL.createObjectURL(stream);
+		video.play();
+	}
+	function throwError (e) {
+		alert(e.name);
+	}
+	function snap () {
+	canvas.width = video.clientWidth;
+	canvas.height = video.clientHeight;
+	context.drawImage(video, 0, 0);
+	}
+
+
+//-->
+	</script>
+	</body>
+</html>
